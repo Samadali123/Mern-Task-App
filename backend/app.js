@@ -7,13 +7,10 @@ const logger = require("morgan")
 const cors = require("cors")
 const path = require("path");
 
-const __dirname = path.resolve();
-
-
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("*", (_, res) => {
-  res.sendFile(path.join(__dirname, "frontend","vite-project", "dist" ,"index.html"));
+  res.sendFile(path.join(__dirname, "frontend", "vite-project", "dist", "index.html"));
 });
 
 
