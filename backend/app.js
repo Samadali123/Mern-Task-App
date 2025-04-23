@@ -7,11 +7,6 @@ const logger = require("morgan")
 const cors = require("cors")
 const path = require("path");
 
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("*", (_, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "vite-project", "dist", "index.html"));
-});
 
 
 // create db connection
