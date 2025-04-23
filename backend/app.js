@@ -5,7 +5,16 @@ require("dotenv").config();
 const PORT = process.env.PORT
 const logger = require("morgan")
 const cors = require("cors")
+const path = require("path");
 
+const __dirname = path.resolve();
+
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", (_, res) => {
+  res.sendFile(path.join(__dirname, "frontend","vite-project", "dist" ,"index.html"));
+});
 
 
 // create db connection
@@ -28,6 +37,7 @@ app.use(cors());
 
 // stitch the routes to the server
 require("./routes/task.routes")(app);
+
 
 
 app.listen(PORT, ()=>{
